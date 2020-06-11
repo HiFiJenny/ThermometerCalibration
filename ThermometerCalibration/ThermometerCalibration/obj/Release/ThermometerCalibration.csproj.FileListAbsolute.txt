@@ -1,0 +1,44 @@
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\ThermometerCalibration.exe.config
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\ThermometerCalibration.exe
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\ThermometerCalibration.pdb
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\BouncyCastle.Crypto.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\CircularProgressBar.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\ICSharpCode.SharpZipLib.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.OOXML.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.OpenXml4Net.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.OpenXmlFormats.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\WinFormAnimation.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\BouncyCastle.Crypto.xml
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\CircularProgressBar.xml
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\ICSharpCode.SharpZipLib.pdb
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Release\ICSharpCode.SharpZipLib.xml
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.Form1.resources
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.Properties.Resources.resources
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.csproj.GenerateResource.Cache
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.exe
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.pdb
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.csprojResolveAssemblyReference.cache
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\ThermometerCalibration.exe.config
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\ThermometerCalibration.exe
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\ThermometerCalibration.pdb
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\CircularProgressBar.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\ICSharpCode.SharpZipLib.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.OOXML.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.OpenXml4Net.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\NPOI.OpenXmlFormats.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\WinFormAnimation.dll
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\BouncyCastle.Crypto.xml
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\CircularProgressBar.xml
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\ICSharpCode.SharpZipLib.pdb
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\bin\Release\ICSharpCode.SharpZipLib.xml
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.csprojAssemblyReference.cache
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.Form1.resources
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.Properties.Resources.resources
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.csproj.GenerateResource.cache
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.csproj.CoreCompileInputs.cache
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.csproj.CopyComplete
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.exe
+C:\Users\HASEE\Desktop\ThermometerCalibration\ThermometerCalibration\ThermometerCalibration\obj\Release\ThermometerCalibration.pdb

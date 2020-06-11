@@ -1,0 +1,35 @@
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\ThermometerCalibration.exe.config
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\ThermometerCalibration.exe
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\ThermometerCalibration.pdb
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.csprojResolveAssemblyReference.cache
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.Properties.Resources.resources
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.csproj.GenerateResource.Cache
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.exe
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.pdb
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.Form1.resources
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.dll
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.OOXML.dll
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.OpenXml4Net.dll
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\CK\C#\温度计校准\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.xml
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\ThermometerCalibration.exe.config
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.exe
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.pdb
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\ThermometerCalibration.exe
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\ThermometerCalibration.pdb
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.OOXML.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.OpenXml4Net.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\NPOI.OpenXmlFormats.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.csprojResolveAssemblyReference.cache
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.Form1.resources
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.Properties.Resources.resources
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\obj\Debug\ThermometerCalibration.csproj.GenerateResource.Cache
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\BouncyCastle.Crypto.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\BouncyCastle.Crypto.xml
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\ICSharpCode.SharpZipLib.pdb
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\ICSharpCode.SharpZipLib.xml
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\CircularProgressBar.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\WinFormAnimation.dll
+D:\CK\C#\Temperature & humidity\ThermometerCalibration\ThermometerCalibration\bin\Debug\CircularProgressBar.xml
