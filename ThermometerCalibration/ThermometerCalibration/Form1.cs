@@ -31,7 +31,7 @@ namespace ThermometerCalibration
         public Form1()
         {
             InitializeComponent();
-            
+
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace ThermometerCalibration
 
             this.Size = this.MaximumSize = this.MinimumSize = new Size(505, 285);   //隐藏进度条
             button2.Enabled = false;
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -87,14 +87,14 @@ namespace ThermometerCalibration
             PV.temp = 0;
             label1.Text = "程序待初始化";
 
-            TS1.ReadOnly = true;
-            TS2.ReadOnly = true;
-            TS3.ReadOnly = true;
-            HS1.ReadOnly = true;
-            HS2.ReadOnly = true;
-            HS3.ReadOnly = true;
+            TS1.ReadOnly = false;
+            TS2.ReadOnly = false;
+            TS3.ReadOnly = false;
+            HS1.ReadOnly = false;
+            HS2.ReadOnly = false;
+            HS3.ReadOnly = false;
 
-            if(!Directory.Exists(@".\DataSave\"))
+            if (!Directory.Exists(@".\DataSave\"))
             {
                 Directory.CreateDirectory(@".\DataSave\");
             }
@@ -115,7 +115,7 @@ namespace ThermometerCalibration
             PV.wait_steady_time_T = Convert.ToInt32(TimeTSteady.Text);
 
             threadtimer.Change(0, 60000);           //60,000 ms即1分钟计入一次定时器   
-            
+
             this.Invoke((MethodInvoker)delegate {
                 progressBar1.Value = 2;
                 this.Size = this.MaximumSize = this.MinimumSize = new Size(505, 325);           //显示进度条                
@@ -177,7 +177,7 @@ namespace ThermometerCalibration
                 });
 
             }
-            if ( PV.temcal[0] == true && PV.temcal[1] == true && PV.temcal[2] == true && PV.humcal[0] == true && PV.humcal[1] == true && PV.humcal[2] == true)
+            if (PV.temcal[0] == true && PV.temcal[1] == true && PV.temcal[2] == true && PV.humcal[0] == true && PV.humcal[1] == true && PV.humcal[2] == true)
             {
                 this.Invoke((MethodInvoker)delegate
                 {
@@ -193,7 +193,7 @@ namespace ThermometerCalibration
                     this.Size = this.MaximumSize = this.MinimumSize = new Size(505, 285);
                 });
                 MessageBox.Show("校准完成");
-                
+
             }
         }
 
@@ -202,11 +202,11 @@ namespace ThermometerCalibration
         /// j表示第n+1个校准点
         /// </summary>
         /// <param name="j"></param>
-        private void temperature_record(int j)  
+        private void temperature_record(int j)
         {
             string tempstr;     //记录温箱返回的值，方便调试
             ask_chamber("set");
-            if(Convert.ToDouble(PV.Set_Temperature)!=PV.standard_temperature[j])
+            if (Convert.ToDouble(PV.Set_Temperature) != PV.standard_temperature[j])
             {
                 serialPort2.Open();
                 serialPort2.Write("=AS " + PV.standard_temperature_str[j] + "\r");
@@ -216,15 +216,15 @@ namespace ThermometerCalibration
             if (Convert.ToDouble(PV.Set_Humidity) != 60)
             {
                 serialPort2.Open();
-                serialPort2.Write("=RS 60.00\r" );
+                serialPort2.Write("=RS 60.00\r");
                 tempstr = serialPort2.ReadLine();
                 serialPort2.Close();
             }
             ask_chamber("now");
-            if(Math.Abs(Convert.ToDouble(PV.Temperature)-PV.standard_temperature[j])<=PV.wait_steady_temperature && Math.Abs(Convert.ToDouble(PV.Humidity) - 60) <= PV.wait_steady_humidity)   //温度稳定在设定值的设定范围内，湿度稳定在60的设定稳定范围内
+            if (Math.Abs(Convert.ToDouble(PV.Temperature) - PV.standard_temperature[j]) <= PV.wait_steady_temperature && Math.Abs(Convert.ToDouble(PV.Humidity) - 60) <= PV.wait_steady_humidity)   //温度稳定在设定值的设定范围内，湿度稳定在60的设定稳定范围内
             {
                 PV.steady_count++;
-                if(PV.steady_count > PV.wait_steady_time_T) //保持设定时间内稳定
+                if (PV.steady_count > PV.wait_steady_time_T) //保持设定时间内稳定
                 {
                     this.Invoke((MethodInvoker)delegate
                     {
@@ -235,13 +235,13 @@ namespace ThermometerCalibration
                     {
                         ask_ZOGLAB_temperature(device[i].portname);
                         device[i].temperature[j] = Convert.ToDouble(PV.tempT.Substring(0, PV.tempT.Length - 2));  //读取并记录每个温湿度计的温度。
-                        if(Convert.ToDouble(PV.Temperature) == 20)  //在温度20℃时，可以把湿度一并记录
+                        if (Convert.ToDouble(PV.Temperature) == 20)  //在温度20℃时，可以把湿度一并记录
                         {
-                            device[i].humidity[1] = Convert.ToDouble(PV.tempH.Substring(0, PV.tempH.Length - 2));  
+                            device[i].humidity[1] = Convert.ToDouble(PV.tempH.Substring(0, PV.tempH.Length - 2));
                             PV.humcal[1] = true;    //跳过第二个湿度的校准
-                        } 
+                        }
                         this.Invoke((MethodInvoker)delegate {
-                            listBox1.Items.Add(device[i].serialnum + "  " + device[i].temperature[j]);                            
+                            listBox1.Items.Add(device[i].serialnum + "  " + device[i].temperature[j]);
                         });  //记录值列在listbox中
                     }
                     PV.steady_count = 0; //计数器归0
@@ -281,7 +281,7 @@ namespace ThermometerCalibration
                 serialPort2.Close();
             }
             ask_chamber("now");
-            if (Math.Abs(Convert.ToDouble(PV.Humidity) - PV.standard_humidity[j]) <= PV.wait_steady_humidity && Math.Abs(Convert.ToDouble(PV.Temperature) - 15) <= PV.wait_steady_temperature)
+            if (Math.Abs(Convert.ToDouble(PV.Humidity) - PV.standard_humidity[j]) <= PV.wait_steady_humidity && Math.Abs(Convert.ToDouble(PV.Temperature) - 20) <= PV.wait_steady_temperature)
             {
                 PV.steady_count++;
                 if (PV.steady_count > PV.wait_steady_time_H) //保持设定时间内稳定
@@ -318,7 +318,7 @@ namespace ThermometerCalibration
         /// <param name="humidity"></param>
         private void circleupdate(string temperature, string humidity)
         {
-            double t = Convert.ToDouble(temperature.Substring(0,temperature.Length-2));
+            double t = Convert.ToDouble(temperature.Substring(0, temperature.Length - 2));
             double h = Convert.ToDouble(humidity.Substring(0, humidity.Length - 2));
             int tt = (int)Math.Round(t);
             int hh = (int)Math.Round(h);
@@ -340,7 +340,7 @@ namespace ThermometerCalibration
         private void Overtime(object valuse)
         {
             PV.overcount++;
-            if(PV.overcount == 9)  //9s没有完成读取动作认为超时；
+            if (PV.overcount == 9)  //9s没有完成读取动作认为超时；
             {
                 PV.overcount = 0;
                 PV.overflag = true;
@@ -378,7 +378,7 @@ namespace ThermometerCalibration
             try
             {
                 serialPort2.Open();
-                switch(mission)
+                switch (mission)
                 {
                     case "now":
                         serialPort2.Write("?AP\r");
@@ -414,7 +414,7 @@ namespace ThermometerCalibration
                     serialPort2.Close();
                 }
 
-            //    MessageBox.Show("温箱通信错误");
+                //    MessageBox.Show("温箱通信错误");
             }
         }
 
@@ -424,25 +424,25 @@ namespace ThermometerCalibration
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void serialport1_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {           
-            string str,str1;
-            if(PV.sp_search == true)                                            //检测连接的设备数量，ID
+        {
+            string str, str1;
+            if (PV.sp_search == true)                                            //检测连接的设备数量，ID
             {
                 str = serialPort1.ReadLine();                                  //从串口接收缓存中读取字符串，截止到“换行”
-                if(str.Contains("DeviceID:"))                                   //记录检测到的温湿度计的产品编号
+                if (str.Contains("DeviceID:"))                                   //记录检测到的温湿度计的产品编号
                 {
                     str1 = str.Substring(10);
-                                                            //记录检测到的温湿度计数量
+                    //记录检测到的温湿度计数量
                     this.Invoke((MethodInvoker)delegate
-                   {                      
+                    {
                         label1.Text = serialPort1.PortName;
                         listBox1.Items.Add(serialPort1.PortName + "      " + str1);
                     });
-                    device[PV.device_num].portname =serialPort1.PortName;       //串口名和设备编号存入device类数组中
+                    device[PV.device_num].portname = serialPort1.PortName;       //串口名和设备编号存入device类数组中
                     device[PV.device_num].serialnum = str1;
                     PV.device_num++;
                 }
-                else if(str.Contains("INFO"))                                     //检测到温箱 温箱接收到错误信号会返回“INVALID REQUEST”
+                else if (str.Contains("INFO"))                                     //检测到温箱 温箱接收到错误信号会返回“INVALID REQUEST”
                 {
                     serialPort2.PortName = serialPort1.PortName;
                     this.Invoke((MethodInvoker)delegate
@@ -453,21 +453,21 @@ namespace ThermometerCalibration
                     serialPort1.DiscardInBuffer();
                     PV.receive_finish = true;
                 }
-                else if(str.Contains("OK"))
+                else if (str.Contains("OK"))
                 {
                     PV.receive_finish = true;                                   //读取完成
                     serialPort1.DiscardInBuffer();
                 }
-                               
+
             }
-            else if(PV.sp_th_read == true)                                      //接收读取温湿度的命令
+            else if (PV.sp_th_read == true)                                      //接收读取温湿度的命令
             {
                 str = serialPort1.ReadLine();
-                if(str.Contains("Temperature"))
+                if (str.Contains("Temperature"))
                 {
                     PV.tempT = str.Substring(14);
                 }
-                if(str.Contains("Humidity"))
+                if (str.Contains("Humidity"))
                 {
                     PV.tempH = str.Substring(11);
                 }
@@ -476,9 +476,9 @@ namespace ThermometerCalibration
                     PV.receive_finish = true;                                   //读取完成
                 }
             }
-            
+
         }
-        
+
         /// <summary>
         /// 串口2接收函数，温箱的操作
         /// </summary>
@@ -521,7 +521,7 @@ namespace ThermometerCalibration
             int i = 0;
 
             PV.device_num = 0;          //每次检索时，清空存储设备ID，端口名的List和设备数量
-            
+
             this.Invoke((MethodInvoker)delegate
             {
                 this.Cursor = Cursors.WaitCursor;
@@ -570,13 +570,13 @@ namespace ThermometerCalibration
                 {
                     listBox1.Items.Add("未发现温箱");
                 });
-            }          
-            this.Invoke((MethodInvoker)delegate 
+            }
+            this.Invoke((MethodInvoker)delegate
             {
-                label1.Text = "接口测试完毕,检测到" + Convert.ToString(PV.device_num) + "个ZOGLAB温湿度计"; 
+                label1.Text = "接口测试完毕,检测到" + Convert.ToString(PV.device_num) + "个ZOGLAB温湿度计";
                 this.Size = this.MaximumSize = this.MinimumSize = new Size(505, 285);
                 this.Cursor = Cursors.Default;
-            });            
+            });
             SearchThread.Abort();
         }
 
@@ -611,13 +611,15 @@ namespace ThermometerCalibration
                     }
                     //   this.Invoke((MethodInvoker)delegate { progressBar1.Value = 100 + j; });
                 }
+                //workbook.Write(fs);
                 fs.Close();
                 workbook.Close();
+                //filestream.Dispose();
             }
             catch
             {
                 MessageBox.Show("未能找到calnum.xlsx的对照表");
-            }        
+            }
         }
 
         /// <summary>
@@ -625,7 +627,7 @@ namespace ThermometerCalibration
         /// </summary>
         private void structnewarray()
         {
-            for(int i = 0; i < PV.device_num; i++)
+            for (int i = 0; i < PV.device_num; i++)
             {
                 device[i].temperature = new double[3];
                 device[i].humidity = new double[3];
@@ -637,6 +639,7 @@ namespace ThermometerCalibration
         /// </summary>
         private void calibrationpoints_init()
         {
+
             PV.standard_temperature[0] = Convert.ToDouble(TS1.Text);
             PV.standard_temperature[1] = Convert.ToDouble(TS2.Text);
             PV.standard_temperature[2] = Convert.ToDouble(TS3.Text);
@@ -660,7 +663,7 @@ namespace ThermometerCalibration
         private void writetoexcel()
         {
             double per;
-            for(int i = 0; i<PV.device_num; i++)
+            for (int i = 0; i < PV.device_num; i++)
             {
 
                 if (device[i].serialnum.Contains("\r"))
@@ -668,56 +671,35 @@ namespace ThermometerCalibration
                     device[i].serialnum = device[i].serialnum.Substring(0, device[i].serialnum.Length - 1);
                 }
                 //生成表格文件流
-                PV.save = new FileStream(@".\DataSave\" + device[i].serialnum + ".xlsx", FileMode.Create, FileAccess.Write);
-                PV.workbook = new XSSFWorkbook();
-                
-                PV.sheet = PV.workbook.CreateSheet();
-                PV.row = PV.sheet.CreateRow(0);//第一行基本信息
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("日期");
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(DateTime.Now.ToString());
-                PV.cell = PV.row.CreateCell(2); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("温度：");
-                PV.cell = PV.row.CreateCell(3); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("20℃");
-                PV.cell = PV.row.CreateCell(4); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("湿度：");
-                PV.cell = PV.row.CreateCell(5); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("50%");
-                PV.cell = PV.row.CreateCell(6); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("计量编号");
-                PV.cell = PV.row.CreateCell(7); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].serialnum);
-                //空一行
-                PV.row = PV.sheet.CreateRow(2);//第三行 项目
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("温度校准");
+                using (FileStream fs2 = File.OpenRead(@".\repo.xlsx"))
+                {
+                    PV.save = File.Create(@".\DataSave\" + device[i].serialnum + ".xlsx");
+                    PV.workbook = new XSSFWorkbook(fs2);
 
-                PV.row = PV.sheet.CreateRow(3);//第四行 表头
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("标准值/℃");
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("测量值/℃");
+                    PV.sheet = PV.workbook.GetSheet("52-301");
+                    PV.row = PV.sheet.CreateRow(3);//接收日期
+                    PV.cell = PV.row.CreateCell(7); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(DateTime.Now.ToString());
 
-                PV.row = PV.sheet.CreateRow(4);//5,6,7行记录温度
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_temperature_str[0]);
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].temperature[0].ToString());
-                PV.row = PV.sheet.CreateRow(5);
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_temperature_str[1]);
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].temperature[1].ToString());
-                PV.row = PV.sheet.CreateRow(6);
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_temperature_str[2]);
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].temperature[2].ToString());
-                //空一行
-                PV.row = PV.sheet.CreateRow(8);//第九行 项目
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("湿度校准");
+                    PV.row = PV.sheet.CreateRow(7);//检定号
+                    PV.cell = PV.row.CreateCell(19); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].serialnum);
 
-                PV.row = PV.sheet.CreateRow(9);//第10行 表头
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("标准值/%");
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue("测量值/%");
-
-                PV.row = PV.sheet.CreateRow(10);//11,12,13行记录温度
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_humidity_str[0]);
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].humidity[0].ToString());
-                PV.row = PV.sheet.CreateRow(11);
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_humidity_str[1]);
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].humidity[1].ToString());
-                PV.row = PV.sheet.CreateRow(12);
-                PV.cell = PV.row.CreateCell(0); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_humidity_str[2]);
-                PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].humidity[2].ToString());
-                PV.workbook.Write(PV.save);
-                PV.save.Close();
-                per = (Convert.ToDouble(i) / Convert.ToDouble(PV.device_num-1)) * 100;
+                    for (int c = 0; c < 3; c++)
+                    {
+                        PV.row = PV.sheet.CreateRow(67 + 2 * c);//温度
+                        PV.cell = PV.row.CreateCell(2); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_temperature_str[c]);
+                        PV.cell = PV.row.CreateCell(16); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].temperature[c].ToString());
+                        PV.row = PV.sheet.CreateRow(85 + 2 * c);//湿度
+                        PV.cell = PV.row.CreateCell(2); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_humidity_str[c]);
+                        PV.cell = PV.row.CreateCell(14); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].humidity[c].ToString());
+                    }
+                    PV.cell.CellStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
+                    PV.cell.CellStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
+                    PV.cell.CellStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
+                    PV.workbook.Write(PV.save);
+                    PV.save.Close();
+                    fs2.Close();
+                }
+                per = (Convert.ToDouble(i) / Convert.ToDouble(PV.device_num - 1)) * 100;
                 this.Invoke((MethodInvoker)delegate
                 {
                     progressBar1.Value = (int)Math.Round(per);
@@ -732,8 +714,8 @@ namespace ThermometerCalibration
         public bool receive_finish;     //串口1接收完成标志位
         public bool receive_finish2;    //串口2接收完成标志位
         public bool overflag;           //超时标志位
-        public bool[] temcal = new bool[4]{ false, false, false, false };       //记录校准进度，从第0个元素表示第1，2，3个温度点的完成情况
-        public bool[] humcal = new bool[4]{ false, false, false, false };
+        public bool[] temcal = new bool[4] { false, false, false, false };       //记录校准进度，从第0个元素表示第1，2，3个温度点的完成情况
+        public bool[] humcal = new bool[4] { false, false, false, false };
 
         public int device_num;          //待测设备数量
         public int overcount;           //超时秒数
@@ -748,10 +730,11 @@ namespace ThermometerCalibration
         public string tempH;
 
         public int temp;
-        public double[] standard_temperature = new double[3] { 15.0, 20.0, 30.0};
-        public double[] standard_humidity = new double[3] {40.0, 60.0, 80.0 };
-        public string[] standard_temperature_str = new string[3] { "15.00", "20.00", "30.00" };
-        public string[] standard_humidity_str = new string[3] { "40.00", "60.00", "80.00" };
+
+        public double[] standard_temperature = new double[3];
+        public double[] standard_humidity = new double[3];
+        public string[] standard_temperature_str = new string[3];
+        public string[] standard_humidity_str = new string[3];
 
         public FileStream save;         //excel文件流
         public XSSFWorkbook workbook;   //workbook                    
@@ -770,7 +753,7 @@ namespace ThermometerCalibration
         //读取的温度
         public double[] temperature;
         //读取的湿度
-        public double[] humidity ;
+        public double[] humidity;
         //设备信息
         public string portname;     //串口名
         public string serialnum;     //SN号
