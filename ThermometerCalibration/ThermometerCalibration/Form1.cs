@@ -678,20 +678,21 @@ namespace ThermometerCalibration
 
                     PV.sheet = PV.workbook.GetSheet("52-301");
                     PV.row = PV.sheet.CreateRow(3);//接收日期
-                    PV.cell = PV.row.CreateCell(7); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(DateTime.Now.ToString());
+                    PV.cell = PV.row.CreateCell(6); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(DateTime.Now.ToString("yyyy-MM-dd"));
 
                     PV.row = PV.sheet.CreateRow(7);//检定号
-                    PV.cell = PV.row.CreateCell(19); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].serialnum);
-
+                    PV.cell = PV.row.CreateCell(18); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].serialnum);
                     for (int c = 0; c < 3; c++)
                     {
                         PV.row = PV.sheet.CreateRow(67 + 2 * c);//温度
-                        PV.cell = PV.row.CreateCell(2); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_temperature_str[c]);
-                        PV.cell = PV.row.CreateCell(16); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].temperature[c].ToString());
+                        PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue((int)Math.Round(Convert.ToDouble((PV.standard_temperature_str[c]))));
+                        PV.cell = PV.row.CreateCell(16); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].temperature[c]);
                         PV.row = PV.sheet.CreateRow(85 + 2 * c);//湿度
-                        PV.cell = PV.row.CreateCell(2); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(PV.standard_humidity_str[c]);
-                        PV.cell = PV.row.CreateCell(14); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].humidity[c].ToString());
+                        PV.cell = PV.row.CreateCell(1); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue((int)Math.Round(Convert.ToDouble((PV.standard_humidity_str[c]))));
+                        PV.cell = PV.row.CreateCell(16); PV.cell.SetAsActiveCell(); PV.cell.SetCellValue(device[i].humidity[c]);
                     }
+
+                    PV.cell.CellStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Thin;
                     PV.cell.CellStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Thin;
                     PV.cell.CellStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Thin;
                     PV.cell.CellStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Thin;
